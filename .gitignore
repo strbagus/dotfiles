@@ -1,0 +1,7 @@
+*
+
+# Whitelist Folder/Files
+!.gitignore
+!nvim/
+nvim/lazy-lock.json
+!tmux/

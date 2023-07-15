@@ -1,11 +1,14 @@
-vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
--- paste
 vim.keymap.set("x", "p", "\"_dP")
-vim.keymap.set("n", "J", ":bnext <cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "K", ":bprevious <cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<leader>bd", ":bdelete <cr>")
+vim.keymap.set("n", "<C-f>", ":bnext <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-d>", ":bprevious <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 
---Navigation
+-- File Explorer
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
+
+-- Navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-j>', '<C-w>j', { noremap = true, silent = true })
 vim.keymap.set('n', '<C-k>', '<C-w>k', { noremap = true, silent = true })
@@ -51,3 +54,5 @@ vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>" )
 --  lazygit:toggle()
 --end
 --vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+-- Tab Function
+vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>" )

@@ -1,1 +1,2 @@
 alias pa="php artisan"
+alias phpkey='php -r "echo md5(uniqid()).\"\n\";"'

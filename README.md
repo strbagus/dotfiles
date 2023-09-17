@@ -17,13 +17,8 @@ ln -s ~/.dotfiles/nvim/ ~/.config/nvim/
 ln -s ~/.dotfiles/tmux/ ~/.config/tmux/
 ```
 
+# Package needed
+- `lazygit`
+- `ripgrep` for Neovim Telescope live grep
+
 *todo:* make script to run all in one
-
-# If Encounter Issue
-### Tmux
-**Error:**
-```
-'~/.dotfiles/tmux/plugins/tpm/tpm' returned 127
-```
-**Solving:**
-

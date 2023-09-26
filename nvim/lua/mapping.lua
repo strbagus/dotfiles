@@ -1,12 +1,13 @@
 vim.keymap.set("x", "p", "\"_dP")
-vim.keymap.set("n", "<C-f>", ":bnext <cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "<C-d>", ":bprevious <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-d>", "mzJ`z")
+vim.keymap.set("n", "K", ":bnext <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "J", ":bprevious <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
 
 -- File Explorer
-vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>')
+vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })
 
 -- Navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })

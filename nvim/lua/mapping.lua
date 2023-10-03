@@ -3,8 +3,8 @@ vim.keymap.set("n", "<C-d>", "mzJ`z")
 vim.keymap.set("n", "K", ":bnext <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "J", ":bprevious <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
-vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv")
-vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
+vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 
 -- File Explorer
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })
@@ -21,7 +21,7 @@ vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +3<CR>', { noremap = true
 
 -- Comment line toggle
 vim.keymap.set('n', '<leader>/', function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end)
-vim.keymap.set('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<cr>")
+vim.keymap.set('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<cr>")
 
 -- Fuzy finding Telescope
 vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end )

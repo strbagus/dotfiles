@@ -1,7 +1,7 @@
 vim.keymap.set("x", "p", "\"_dP")
 vim.keymap.set("n", "<C-d>", "mzJ`z")
-vim.keymap.set("n", "K", ":bnext <cr>", { noremap = true, silent = true })
-vim.keymap.set("n", "J", ":bprevious <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", ">", ":bnext <cr>", { noremap = true, silent = true })
+vim.keymap.set("n", "<", ":bprevious <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
@@ -39,21 +39,17 @@ vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<
 vim.keymap.set('n', '<leader>tv', "<cmd>ToggleTerm size=50 direction=vertical<cr>" )
 vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>" )
 
--- LSP
---local lsp = require('lsp-zero')
---lsp.on_attach(function(_, bufnr)
---  local opts = { buffer = bufnr, remap = false }
---  vim.keymap.set('n', 'mk', function() vim.lsp.buf.definition() end, opts)
---  vim.keymap.set('n', 'mj', function() vim.lsp.buf.hover() end, opts)
---  vim.keymap.set('n', 'ml', function() vim.lsp.buf.references() end, opts)
---end)
---lsp.setup()
 
---local Terminal = require('toggleterm')
---local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
---function _lazygit_toggle()
---  lazygit:toggle()
---end
---vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua _lazygit_toggle()<CR>", {noremap = true, silent = true})
+--[[ local Terminal = require('toggleterm')
+local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
+function Lazygit_toggle()
+  lazygit:toggle()
+end
+vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true}) ]]
+
 -- Tab Function
 vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>" )
+
+-- Search text
+vim.keymap.set('n', '/', '/\\c', { noremap = true })
+vim.keymap.set('n', '?', '?\\C', { noremap = true })

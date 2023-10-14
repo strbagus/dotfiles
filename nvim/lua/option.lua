@@ -19,3 +19,6 @@ vim.opt.backup = false
 
 vim.cmd "set clipboard=unnamedplus"
 vim.cmd "set relativenumber"
+
+vim.o.smartcase = true
+vim.o.ignorecase = true

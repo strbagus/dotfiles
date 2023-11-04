@@ -1,6 +1,8 @@
 export ZSH=$HOME/.dotfiles/zsh/oh-my-zsh
+export NVM_DIR=$HOME/.nvm
+export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
-ZSH_THEME="duellj"
+ZSH_THEME="fino-time"
 
 plugins=(zsh-autosuggestions)
 

@@ -5,6 +5,7 @@ vim.keymap.set("n", "<", ":bprevious <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
+vim.keymap.set('n', '<S-w>', 'viw', { noremap = true })
 
 -- File Explorer
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })
@@ -20,24 +21,25 @@ vim.keymap.set('n', '<C-Left>', '<cmd>vertical resize -2<CR>', { noremap = true,
 vim.keymap.set('n', '<C-Right>', '<cmd>vertical resize +3<CR>', { noremap = true, silent = true })
 
 -- Comment line toggle
-vim.keymap.set('n', '<leader>/', function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end)
+vim.keymap.set('n', '<leader>/',
+  function() require("Comment.api").toggle.linewise.count(vim.v.count > 0 and vim.v.count or 1) end)
 vim.keymap.set('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<cr>")
 
 -- Fuzy finding Telescope
-vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end )
+vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end)
 vim.keymap.set('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end)
-vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end )
-vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end )
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end)
+vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end)
 
 -- Git
-vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>" )
-vim.keymap.set('n', '<leader>gl', "<cmd>Gitsigns toggle_linehl<cr>" )
-vim.keymap.set('n', '<leader>gb', "<cmd>GitBlameToggle<cr>" )
+vim.keymap.set('n', '<leader>gd', "<cmd>Gitsigns diffthis<cr>")
+vim.keymap.set('n', '<leader>gl', "<cmd>Gitsigns toggle_linehl<cr>")
+vim.keymap.set('n', '<leader>gb', "<cmd>GitBlameToggle<cr>")
 
 -- Terminal
-vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<cr>" )
-vim.keymap.set('n', '<leader>tv', "<cmd>ToggleTerm size=50 direction=vertical<cr>" )
-vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>" )
+vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<cr>")
+vim.keymap.set('n', '<leader>tv', "<cmd>ToggleTerm size=50 direction=vertical<cr>")
+vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>")
 
 
 --[[ local Terminal = require('toggleterm')
@@ -48,7 +50,7 @@ end
 vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true}) ]]
 
 -- Tab Function
-vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>" )
+vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>")
 
 -- Search text
 vim.keymap.set('n', '/', '/\\c', { noremap = true })

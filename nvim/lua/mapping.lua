@@ -6,6 +6,10 @@ vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('n', '<S-w>', 'viw', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'd', '"_d', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'D', '"_D', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'c', '"_c', { noremap = true })
+vim.keymap.set({'n', 'v'}, 'C', '"_C', { noremap = true })
 
 -- File Explorer
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })

@@ -1,3 +1,4 @@
 alias pa="php artisan"
 alias phpkey='php -r "echo md5(uniqid()).\"\n\";"'
 alias notes='nvim ~/Documents/OneD/NotesObs/'
+alias snvim="sudo -Es nvim $1"

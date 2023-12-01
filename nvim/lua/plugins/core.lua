@@ -1,5 +1,5 @@
 return {
-  {
+  --[[  {
     "goolord/alpha-nvim",
     event = "VimEnter",
     cmd = "Alpha",
@@ -20,11 +20,11 @@ return {
         " ██║╚██╔╝██║██╔══╝  ██║╚██╗██║██║   ██║██╔═██╗ ██║   ██║██║  ██║██║██║╚██╗██║██║   ██║ ",
         " ██║ ╚═╝ ██║███████╗██║ ╚████║╚██████╔╝██║  ██╗╚██████╔╝██████╔╝██║██║ ╚████║╚██████╔╝ ",
         " ╚═╝     ╚═╝╚══════╝╚═╝  ╚═══╝ ╚═════╝ ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝  ",
-        
+
       }
       alpha.setup(dashboard.config)
     end,
-  },
+  }, ]]
   {
     "catppuccin/nvim",
     name = "catppuccin",
@@ -37,7 +37,7 @@ return {
       require('catppuccin').setup(opts)
     end
   },
-	'wakatime/vim-wakatime',
+  'wakatime/vim-wakatime',
   {
     "numToStr/Comment.nvim",
     keys = {
@@ -55,7 +55,7 @@ return {
     dependencies = 'nvim-tree/nvim-web-devicons',
     config = function()
       vim.opt.termguicolors = true
-      require('bufferline').setup{}
+      require('bufferline').setup {}
     end
   },
   {

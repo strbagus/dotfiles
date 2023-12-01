@@ -2,14 +2,13 @@ vim.keymap.set("x", "p", "\"_dP")
 vim.keymap.set("n", "<C-d>", "mzJ`z")
 vim.keymap.set("n", ">", ":bnext <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<", ":bprevious <cr>", { noremap = true, silent = true })
+vim.keymap.set("x", "jk", "<ESC>", { silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set('n', '<S-w>', 'viw', { noremap = true })
-vim.keymap.set({'n', 'v'}, 'd', '"_d', { noremap = true })
-vim.keymap.set({'n', 'v'}, 'D', '"_D', { noremap = true })
-vim.keymap.set({'n', 'v'}, 'c', '"_c', { noremap = true })
-vim.keymap.set({'n', 'v'}, 'C', '"_C', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
+vim.keymap.set({ 'n', 'v' }, 'D', '"_D', { noremap = true })
 
 -- File Explorer
 vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })
@@ -44,14 +43,6 @@ vim.keymap.set('n', '<leader>gb', "<cmd>GitBlameToggle<cr>")
 vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<cr>")
 vim.keymap.set('n', '<leader>tv', "<cmd>ToggleTerm size=50 direction=vertical<cr>")
 vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>")
-
-
---[[ local Terminal = require('toggleterm')
-local lazygit = Terminal:new({ cmd = "lazygit", hidden = true })
-function Lazygit_toggle()
-  lazygit:toggle()
-end
-vim.api.nvim_set_keymap("n", "<leader>tg", "<cmd>lua Lazygit_toggle()<CR>", {noremap = true, silent = true}) ]]
 
 -- Tab Function
 vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>")

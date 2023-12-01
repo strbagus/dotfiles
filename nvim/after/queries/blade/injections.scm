@@ -1,4 +1,4 @@
-((content) @injection.content
+((php) @injection.content
     (#set! injection.language "html")
     (#set! injection.combined))
 ((php) @injection.content

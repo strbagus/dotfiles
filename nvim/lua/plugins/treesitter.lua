@@ -1,17 +1,12 @@
 return {
   "nvim-treesitter/nvim-treesitter",
-  --[[ init = function()
-    require("core.utils").lazy_load "nvim-treesitter"
-  end, ]]
-  dependencies = { 
-    "windwp/nvim-ts-autotag", 
-    -- "JoosepAlviste/nvim-ts-context-commentstring" 
+  dependencies = {
+    "windwp/nvim-ts-autotag",
   },
-  cmd = { "TSInstall", "TSBufEnable", "TSBufDisable", "TSModuleInfo" },
   build = ":TSUpdate",
   opts = {
     ensure_installed = {
-      "lua", "vim"
+      "lua", "vim", "blade", "php", "vue", "go"
     },
     highlight = {
       enable = true,
@@ -20,7 +15,6 @@ return {
     incremental_selection = { enable = true },
     indent = { enable = true },
     autotag = { enable = true },
-    -- context_commentstring = { enable = true, enable_autocmd = false },
   },
 
   config = function(_, opts)

@@ -12,15 +12,14 @@ return {
   },
   config = function()
     local lsp = require('lsp-zero').preset({})
-    --[[ lsp.ensure_installed({
-      'tsserver'
-    }) ]]
-    lsp.on_attach(function(_, bufnr)
-      lsp.default_keymaps({buffer = bufnr})
-      lsp.buffer_autoformat()
-    end)
-    lsp.setup()
 
+    require('mason').setup({})
+    require('mason-lspconfig').setup({
+      ensure_installed = { 'tsserver' },
+      handlers = {
+        lsp.default_setup
+      }
+    })
     require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
   end
 }

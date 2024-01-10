@@ -8,7 +8,6 @@ floating_modifier $mod
 # start a terminal
 # bindsym Mod1+Return exec xfce4-terminal
 bindsym $mod+Return exec xfce4-terminal
-
 # bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+e exec xfce4-session-logout
@@ -186,7 +185,7 @@ bindsym $mod+z exec xfce4-screenshooter
 #exec rm -f ~/.local/share/Steam/bootstrap.tar.xz
 
 exec nm-applet
-# exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --restore
 #bindsym Mod1+h exec pkill pulseaudio && exec pulseaudio
 #bindsym Mod1+c exec pkill picom
 #bindsym Mod1+v exec picom
@@ -204,10 +203,12 @@ bindsym $mod+Shift+d gaps inner current set 0; gaps outer current set 0
 # gapsconfig
 
 # previous | for_window [class="^.*"] border pixel 1
-for_window [class="^.*"] border pixel 0
+for_window [class="^.*"] border pixel 2
 # previous | gaps inner 4
-gaps inner 4
+gaps inner 2
 gaps outer 0
+
+hide_edge_borders smart
 
 # gapsconfig
 
@@ -250,9 +251,9 @@ set_from_resource $fg i3wm.color0 #282a2e
 set_from_resource $bg i3wm.color6 #282a2e
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #2c363d #3c464d #ffffff #7e7e7e   #a7a7a7
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #7d7d7d
+client.focused          #2c363d #3c464d #ffffff #7e7e7e   #80d8ff 
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #0aaef5 
+client.unfocused        #333333 #222222 #888888 #292d2e   #1a1a1c 
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 

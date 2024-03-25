@@ -1,19 +1,31 @@
 # How to Setup
-- it configured for debian (and maybe ubuntu)
-- run `sudo ./setup.sh`
-- i'd recomend to read `setup.sh` and do manually
+- create sysmlink for each configuration into `~/.config`
+- example: `ln -s ~/.dotfiles/nvim ~/.config/nvim`
+- for **zsh** `ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc`
 
 ## I3wm
 i3wm configured for used alongside xfce. i can't use i3wm alone(skill issue)
 
+reference: [i3wm + xfce](https://feeblenerd.blogspot.com/2015/11/pretty-i3-with-xfce.html)
+
 ## Neovim 
 required version: `0.9^`
 
-## Tmux
-Inside tmux press: `prefix + I` for install plugin
-
-## ZSH
-
-# Other Needed Pakage
+**Additional Package:**
 - [lazygit](https://github.com/jesseduffield/lazygit) -> git cli ui, integration within Neovim
 - [ripgrep](https://github.com/BurntSushi/ripgrep) -> fuzy finding, integration within Neovim
+
+## Tmux
+Step to install [tpm](https://github.com/tmux-plugins/tpm) plugins:
+- `git clone https://github.com/tmux-plugins/tpm /path/to/dotfiles/tmux/plugins/tpm`
+- Open tmux, then press: `prefix + I` for install plugins
+
+## ZSH
+Step to install:
+- make sure **zsh** is installed. `apt install zsh`
+- `cd /path/to/dotfiles/zsh`
+- `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+
+**Extra:** If **.zshrc** already exists when setup **oh-my-zsh**, it will backup existence **.zshrc** into **.zshrc.preload-something**. In order to use older **.zshrc**:
+- remove new **.zshrc**: `rm .zshrc`
+- rename **.zshrc.preload-something** to **.zshrc**: `mv .zshrc.preload-something .zshrc`

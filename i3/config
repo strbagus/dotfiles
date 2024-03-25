@@ -180,7 +180,8 @@ set $transparent        #00000000
 #exec_always xfce4-panel
 #exec xrandr --output DisplayPort-1 --mode 1920x1080 --rate 165.00 #--output HDMI-1 --mode 1920x1080 --rate 75.00
 #bindysym Mod1+h exec xrandr --output DisplayPort-1 --mode 1920x1080 --rate 165.00 #--output HDMI-1 --mode 1920x1080 --rate 75.00
-bindsym $mod+z exec xfce4-screenshooter
+bindsym Print exec xfce4-screenshooter -f
+bindsym Shift+Print exec xfce4-screenshooter
 bindsym $mod+p exec xfce4-display-settings --minimal
 #bindsym $mod+x exec rm -f ~/.local/share/Steam/bootstrap.tar.xz
 #exec rm -f ~/.local/share/Steam/bootstrap.tar.xz

@@ -6,7 +6,7 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = {
-      "lua", "vim", "blade", "php", "vue", "go"
+      "lua", "vim", "php", "vue", "go", "javascript", "typescript", "html"
     },
     highlight = {
       enable = true,
@@ -15,6 +15,7 @@ return {
     incremental_selection = { enable = true },
     indent = { enable = true },
     autotag = { enable = true },
+    auto_insatll = true
   },
 
   config = function(_, opts)

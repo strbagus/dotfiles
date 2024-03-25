@@ -30,11 +30,12 @@ return {
     name = "catppuccin",
     priority = 1,
     opts = {
-      flavour = "mocha",
+      flavour = "macchiato",
+      transparent_background = true
     },
     config = function(_, opts)
-      vim.cmd.colorscheme "catppuccin";
       require('catppuccin').setup(opts)
+      vim.cmd.colorscheme "catppuccin"
     end
   },
   'wakatime/vim-wakatime',

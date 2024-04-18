@@ -22,6 +22,7 @@ bindsym $mod+q kill
 # bindsym Mod1+s exec xfce4appfinder 
 bindsym $mod+d exec xfce4-appfinder 
 for_window [class="Xfce4-appfinder" instance="xfce4-appfinder"] floating enable
+for_window [class="Xfce4-appfinder" instance="xfce4-appfinder"] resize set 750px 600px 
                             #APPLICATION LAUNCHER#
 # change focus
 bindsym $mod+h focus left

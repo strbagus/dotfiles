@@ -1,6 +1,6 @@
 alias pa="php artisan"
 alias phpkey='php -r "echo md5(uniqid()).\"\n\";"'
-alias notes='nvim ~/Documents/Cloud/NotesObs/'
+alias notes='nvim ~/Documents/Notes'
 alias snvim="sudo -Es nvim $1"
 alias tn="tmux new -s $1"
 alias ta="tmux attach"

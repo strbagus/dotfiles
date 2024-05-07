@@ -1,12 +1,10 @@
 vim.keymap.set("x", "p", "\"_dP")
-vim.keymap.set("n", "<C-d>", "mzJ`z")
 vim.keymap.set("n", ">", ":bnext <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<", ":bprevious <cr>", { noremap = true, silent = true })
 vim.keymap.set({ 'i', 'v'}, "jk", "<ESC>", { silent = true })
 vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
-vim.keymap.set('n', '<S-w>', 'viw', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'D', '"_D', { noremap = true })
 
@@ -43,9 +41,6 @@ vim.keymap.set('n', '<leader>gb', "<cmd>GitBlameToggle<cr>")
 vim.keymap.set('n', '<leader>th', "<cmd>ToggleTerm size=15 direction=horizontal<cr>")
 vim.keymap.set('n', '<leader>tv', "<cmd>ToggleTerm size=50 direction=vertical<cr>")
 vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>")
-
--- Tab Function
-vim.keymap.set('n', '<C-m>', "<cmd>SymbolsOutline<cr>")
 
 -- Search text
 vim.keymap.set('n', '/', '/\\c', { noremap = true })

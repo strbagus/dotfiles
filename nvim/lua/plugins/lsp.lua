@@ -1,28 +1,28 @@
 return {
-  'VonHeikemen/lsp-zero.nvim',
-  dependencies = {
-    'neovim/nvim-lspconfig',
-    {
-      'williamboman/mason.nvim',
-      build = function()
-        pcall(vim.cmd['MasonUpdate'])
-      end,
-    },
-    'williamboman/mason-lspconfig.nvim',
+  {
+    "williamboman/mason.nvim",
+    config = function()
+      require("mason").setup()
+    end
   },
-  config = function()
-    local lsp = require('lsp-zero').preset({})
+  {
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+      require("mason-lspconfig").setup({
+        ensure_installed = { "lua_ls", "tsserver" }
+      })
+    end
+  },
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      local lspconfig = require("lspconfig")
+      lspconfig.lua_ls.setup({})
+      lspconfig.tsserver.setup({})
 
-    require('mason').setup({})
-    require('mason-lspconfig').setup({
-      ensure_installed = {},
-      handlers = {
-        lsp.default_setup
-      }
-    })
-    lsp.on_attach(function(_, bufnr)
-      lsp.default_keymaps({buffer = bufnr})
-    end)
-    require('lspconfig').lua_ls.setup(lsp.nvim_lua_ls())
-  end
+      vim.keymap.set('n', 'K', vim.lsp.buf.hover, {})
+      vim.keymap.set('n', 'gd', vim.lsp.buf.definition, {})
+      vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, {})
+    end
+  }
 }

@@ -7,10 +7,11 @@ floating_modifier $mod
 
 # start a terminal
 # bindsym Mod1+Return exec xfce4-terminal
-bindsym $mod+Return exec xfce4-terminal
+bindsym $mod+Return exec wezterm
+# bindsym $mod+Return exec xfce4-terminal
 # bindsym $mod+Return exec alacritty
 
-bindsym $mod+Shift+e exec xfce4-session-logout
+bindsym $mod+Shift+e exec xfce4-session-logout  --no-startup-id
 
 # kill focused window
 # bindsym $mod+Shift+q kill
@@ -181,8 +182,8 @@ set $transparent        #00000000
 #exec_always xfce4-panel
 #exec xrandr --output DisplayPort-1 --mode 1920x1080 --rate 165.00 #--output HDMI-1 --mode 1920x1080 --rate 75.00
 #bindysym Mod1+h exec xrandr --output DisplayPort-1 --mode 1920x1080 --rate 165.00 #--output HDMI-1 --mode 1920x1080 --rate 75.00
-bindsym Print exec xfce4-screenshooter -f
-bindsym Shift+Print exec xfce4-screenshooter
+bindsym Print exec xfce4-screenshooter
+bindsym Shift+Print exec xfce4-screenshooter -f
 bindsym $mod+p exec xfce4-display-settings --minimal
 #bindsym $mod+x exec rm -f ~/.local/share/Steam/bootstrap.tar.xz
 #exec rm -f ~/.local/share/Steam/bootstrap.tar.xz
@@ -239,7 +240,7 @@ bindsym Mod1+l exec pkill xfce4-panel
 #    status_command ~/.config/bumblebee-status/bumblebee-status -m pasink pasource uptime datetime kernel -p disk.path=/home datetime.format="%a %d %b %Y %I:%M:%S%p" -t iceberg
 #position top
 #    }
-bindsym Mod1+k exec xfce4-panel
+bindsym Mod1+k exec xfce4-panel --no-startup-id
 bindsym Mod1+j exec pkill java
 exec --no-startup-id xrdb .Xresources
 
@@ -247,7 +248,8 @@ exec --no-startup-id xrdb .Xresources
 #fake-outputs 3840x1080+0+0
 
 #Locks system
-bindsym $mod+Shift+x exec i3lock -i ~/Pictures/.sys/lockscreen.jpg
+# bindsym $mod+Shift+x exec i3lock -i ~/Pictures/.sys/lockscreen.jpg
+bindsym $mod+Shift+x exec xflock4
 
 #NON IMPORTANT STUFF
 

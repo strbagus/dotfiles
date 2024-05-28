@@ -2,6 +2,7 @@
 - create sysmlink for each configuration into `~/.config`
 - example: `ln -s ~/.dotfiles/nvim ~/.config/nvim`
 - for **zsh** `ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc`
+- for **wezterm** `ln -s ~/.dotfiles/wezterm/westerm.lua ~/.wezterm`
 
 ## I3wm
 i3wm configured for used alongside xfce. i can't use i3wm alone(skill issue)
@@ -19,6 +20,9 @@ required version: `0.9^`
 Step to install [tpm](https://github.com/tmux-plugins/tpm) plugins:
 - `git clone https://github.com/tmux-plugins/tpm /path/to/dotfiles/tmux/plugins/tpm`
 - Open tmux, then press: `prefix + I` for install plugins
+
+# Wezterm
+How to Install [Wezterm](https://wezfurlong.org/wezterm/installation.html)
 
 ## ZSH
 Step to install:

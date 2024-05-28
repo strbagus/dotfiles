@@ -27,9 +27,9 @@ vim.keymap.set('n', '<leader>/',
 vim.keymap.set('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<cr>")
 
 -- Fuzy finding Telescope
-vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files() end)
-vim.keymap.set('n', '<leader>fo', function() require('telescope.builtin').oldfiles() end)
-vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep() end)
+vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end)
+vim.keymap.set('n', '<leader>fo', function() require('telescope.builtin').oldfiles({ hidden = true, no_ignore = true }) end)
+vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end)
 vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end)
 
 -- Git

@@ -12,6 +12,7 @@ bindsym $mod+Return exec wezterm
 # bindsym $mod+Return exec alacritty
 
 bindsym $mod+Shift+e exec xfce4-session-logout  --no-startup-id
+bindsym $mod+Shift+a exec ~/.scripts/toggle_xsct.sh
 
 # kill focused window
 # bindsym $mod+Shift+q kill

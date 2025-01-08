@@ -1,4 +1,5 @@
 alias pa="php artisan"
+alias pat="php artisan tenants:artisan '$1 --path=database/migrations/tenant --database=tenant'"
 alias phpkey='php -r "echo md5(uniqid()).\"\n\";"'
 alias notes='nvim ~/Documents/Notes'
 alias snvim="sudo -Es nvim $1"
@@ -7,4 +8,5 @@ alias ta="tmux attach"
 alias tkv="tmux kill-server"
 alias tks="tmux kill-session"
 alias tlps="sudo tlp setcharge 70 80 BAT0"
-alias tlpf="sudo tlp fullcharge BAT0"
+alias tlpf="sudo tlp setcharge 96 100 BAT0"
+alias :q="exit"

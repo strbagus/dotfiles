@@ -8,6 +8,7 @@ return {
           "%.git/",
           "node_modules",
           "vendor",
+          "dist",
         },
       },
     },

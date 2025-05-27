@@ -6,22 +6,32 @@ return {
   build = ":TSUpdate",
   opts = {
     ensure_installed = {
-      "lua", "vim", "php", "vue", "go", "javascript", "typescript", "html"
+      "lua",
+      "vim",
+      "php",
+      "vue",
+      "go",
+      "javascript",
+      "typescript",
+      "html",
+      "python",
     },
     highlight = {
       enable = true,
-      disable = function(_, bufnr) return vim.api.nvim_buf_line_count(bufnr) > 10000 end,
+      disable = function(_, bufnr)
+        return vim.api.nvim_buf_line_count(bufnr) > 10000
+      end,
     },
     incremental_selection = { enable = true },
     indent = { enable = true },
     autotag = { enable = true },
-    auto_insatll = true
+    auto_insatll = true,
   },
 
   config = function(_, opts)
     require("nvim-treesitter.configs").setup(opts)
 
-    local parser_config = require "nvim-treesitter.parsers".get_parser_configs()
+    local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
 
     parser_config.blade = {
       install_info = {
@@ -29,13 +39,13 @@ return {
         files = { "src/parser.c" },
         branch = "main",
       },
-      filetype = "blade"
+      filetype = "blade",
     }
 
     vim.filetype.add({
       pattern = {
-        ['.*%.blade%.php'] = 'blade',
+        [".*%.blade%.php"] = "blade",
       },
     })
-  end
+  end,
 }

@@ -1,15 +1,15 @@
 vim.keymap.set("x", "p", "\"_dP")
 vim.keymap.set("n", ">", ":bnext <cr>", { noremap = true, silent = true })
 vim.keymap.set("n", "<", ":bprevious <cr>", { noremap = true, silent = true })
-vim.keymap.set({ 'i', 'v'}, "jk", "<ESC>", { silent = true })
-vim.keymap.set("n", "<C-w>", ":bdelete <cr>", { noremap = true, silent = true })
+vim.keymap.set({ 'i', 'v' }, "jk", "<ESC>", { silent = true })
 vim.keymap.set("v", "<A-k>", ":m '<-2<CR>gv=gv", { silent = true })
 vim.keymap.set("v", "<A-j>", ":m '>+1<CR>gv=gv", { silent = true })
 vim.keymap.set({ 'n', 'v' }, 'd', '"_d', { noremap = true })
 vim.keymap.set({ 'n', 'v' }, 'D', '"_D', { noremap = true })
+vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
 -- File Explorer
-vim.keymap.set('n', '<C-b>', ':NvimTreeToggle<CR>', { silent = true })
+vim.keymap.set('n', '\\\\', ':NvimTreeToggle<CR>', { silent = true })
 
 -- Navigation
 vim.keymap.set('n', '<C-h>', '<C-w>h', { noremap = true, silent = true })
@@ -27,9 +27,12 @@ vim.keymap.set('n', '<leader>/',
 vim.keymap.set('v', '<leader>/', "<esc><cmd>lua require('Comment.api').toggle.blockwise(vim.fn.visualmode())<cr>")
 
 -- Fuzy finding Telescope
-vim.keymap.set('n', '<leader>ff', function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end)
-vim.keymap.set('n', '<leader>fo', function() require('telescope.builtin').oldfiles({ hidden = true, no_ignore = true }) end)
-vim.keymap.set('n', '<leader>fg', function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end)
+vim.keymap.set('n', '<leader>ff',
+  function() require('telescope.builtin').find_files({ hidden = true, no_ignore = true }) end)
+vim.keymap.set('n', '<leader>fo',
+  function() require('telescope.builtin').oldfiles({ hidden = true, no_ignore = true }) end)
+vim.keymap.set('n', '<leader>fg',
+  function() require('telescope.builtin').live_grep({ hidden = true, no_ignore = true }) end)
 vim.keymap.set('n', '<leader>fh', function() require('telescope.builtin').help_tags() end)
 
 -- Git
@@ -45,3 +48,8 @@ vim.keymap.set('n', '<leader>tf', "<cmd>ToggleTerm direction=float<cr>")
 -- Search text
 vim.keymap.set('n', '/', '/\\c', { noremap = true })
 vim.keymap.set('n', '?', '?\\C', { noremap = true })
+
+-- DAP (Debug Adapter Protocol)
+
+vim.keymap.set('n', '<leader>db', '<cmd> DapToggleBreakpoint <CR>')
+vim.keymap.set('n', '<leader>dr', '<cmd> DapContinue <CR>')

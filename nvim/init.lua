@@ -1,3 +1,3 @@
-require("option")
-require("mapping")
-require("plugin")
+require("config.option")
+require("config.mapping")
+require("config.plugin")

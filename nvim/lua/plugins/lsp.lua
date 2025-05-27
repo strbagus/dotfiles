@@ -17,8 +17,13 @@ return {
 			require("mason-lspconfig").setup({
 				ensure_installed = {
 					"lua_ls",
-					"tsserver",
 					"volar",
+					-- "tsserver",
+          "ts_ls",
+					"intelephense",
+					"clangd",
+					"gopls",
+					"pylsp",
 				},
 				handlers = {
 					function(server_name)
@@ -34,9 +39,14 @@ return {
 										tsdk = "/usr/lib/node_modules/@vue/typescript-plugin",
 									},
 								},
+								timeout_ms = 1000,
 							}
 						end
-						require("lspconfig")[server_name].setup(initConfig)
+						local capabilities = require("cmp_nvim_lsp").default_capabilities()
+						require("lspconfig")[server_name].setup({
+							initConfig,
+							capabilities = capabilities,
+						})
 					end,
 				},
 			})

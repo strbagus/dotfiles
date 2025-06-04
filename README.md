@@ -15,6 +15,7 @@ required version: `0.9^`
 **Additional Package:**
 - [lazygit](https://github.com/jesseduffield/lazygit) -> git cli ui, integration within Neovim
 - [ripgrep](https://github.com/BurntSushi/ripgrep) -> fuzy finding, integration within Neovim
+- `npm install -g @vue/language-server @vue/typescript-plugin` -> for vue develompent
 
 ## Tmux
 Step to install [tpm](https://github.com/tmux-plugins/tpm) plugins:

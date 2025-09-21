@@ -5,9 +5,7 @@
 - for **wezterm** `ln -s ~/.dotfiles/wezterm/westerm.lua ~/.wezterm`
 
 ## I3wm
-i3wm configured for used alongside xfce. i can't use i3wm alone(skill issue)
-
-reference: [i3wm + xfce](https://feeblenerd.blogspot.com/2015/11/pretty-i3-with-xfce.html)
+with polybar
 
 ## Neovim 
 required version: `0.9^`

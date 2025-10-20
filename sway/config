@@ -45,8 +45,9 @@ for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 
 default_border pixel 1
 default_floating_border pixel 1
-bindsym Print exec xfce4-screenshooter
-bindsym Shift+Print exec xfce4-screenshooter -f
+
+bindsym Shift+Print exec grim -g "$(slurp)" - | swappy -f -
+bindsym Print exec grim - | swappy -f -
 
 bindsym $mod+Shift+d exec thunar
 bindsym $mod+p exec ~/Others/scripts/displaymenu.sh
@@ -177,7 +178,7 @@ input "1267:51:Elan_Touchpad" {
 }
 
 bindsym $mod+r mode "resize"
-set $swaylock '/home/strbagus/Others/scripts/swaylock.sh'
+set $swaylock '~/Others/scripts/swaylock.sh'
 exec_always {
   swayidle -w \
     timeout 300 $swaylock \
@@ -187,5 +188,5 @@ exec_always {
 }
 exec_always wl-paste --watch cliphist store
 exec_always xsettingsd &
-exec_always "/home/strbagus/Others/dotfiles/waybar/launch.sh"
+exec_always "~/Others/dotfiles/waybar/launch.sh"
 include /etc/sway/config.d/*

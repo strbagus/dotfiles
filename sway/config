@@ -1,11 +1,11 @@
 include /etc/sway/config-vars.d/*
 
 set $mod Mod4
+set $swaylock '~/Others/scripts/swaylock.sh'
 
 font pango:"UbuntuMono Nerd Font" Regular 11
 
-exec --no-startup-id light-locker --lock-on-suspend --lock-on-lid
-bindsym $mod+Shift+x exec light-locker-command -l
+exec --no-startup-id $swaylock --lock-on-lid
 
 exec --no-startup-id nm-applet &
 
@@ -15,14 +15,13 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
-bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +5%
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
 
 set $wallpaper /usr/share/backgrounds/mywall.jpg
-# exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/mywall.jpg
 exec_always --no-startup-id swaybg -i $wallpaper -m fill
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
@@ -36,18 +35,16 @@ bindsym $mod+Return exec wezterm
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-# bindsym $mod+d exec --no-startup-id dmenu_run
-# bindsym $mod+d exec --no-startup-id xfce4-appfinder
 bindsym $mod+d exec --no-startup-id rofi -show drun
-for_window [class="Xfce4-appfinder" instance="xfce4-appfinder"] floating enable
-for_window [class="Xfce4-appfinder" instance="xfce4-appfinder"] resize set 750px 600px 
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [title="Picture-in-Picture"] sticky enable
 
 default_border pixel 1
 default_floating_border pixel 1
 
-bindsym Shift+Print exec grim -g "$(slurp)" - | swappy -f -
-bindsym Print exec grim - | swappy -f -
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+bindsym Shift+Print exec bash -c 'region=$(slurp) && sleep 3 && grim -g "$region" - | swappy -f -'
+# bindsym Shift+Print exec grim - | swappy -f -
 
 bindsym $mod+Shift+d exec thunar
 bindsym $mod+p exec ~/Others/scripts/displaymenu.sh
@@ -92,6 +89,9 @@ bindsym $mod+e layout toggle split
 
 # toggle tiling / floating
 bindsym $mod+Shift+space floating toggle
+
+# Toggle sticky for the focused window
+bindsym $mod+Shift+s sticky toggle
 
 # change focus between tiling / floating windows
 bindsym $mod+space focus mode_toggle
@@ -178,7 +178,7 @@ input "1267:51:Elan_Touchpad" {
 }
 
 bindsym $mod+r mode "resize"
-set $swaylock '~/Others/scripts/swaylock.sh'
+
 exec_always {
   swayidle -w \
     timeout 300 $swaylock \

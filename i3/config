@@ -12,7 +12,7 @@ set $mod Mod4
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:FiraCode Nerd Font 8
+font pango:UbuntuMono Nerd Font 8
 
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
@@ -42,8 +42,11 @@ bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
-bindsym XF86MonBrightnessDown exec brightnessctl s 5%-
-bindsym XF86MonBrightnessUp exec brightnessctl s +5%
+bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
+bindsym XF86MonBrightnessUp exec brightnessctl s +10%
+
+
+bindsym $mod+Shift+a exec ~/Others/scripts/toggle_xsct.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -76,10 +79,10 @@ default_floating_border pixel 1
 # bindcode $mod+40 exec --no-startup-id i3-dmenu-desktop
 bindsym Print exec xfce4-screenshooter
 bindsym Shift+Print exec xfce4-screenshooter -f
+exec --no-startup-id xfce4-clipman
 
+bindsym $mod+Shift+d exec thunar
 bindsym $mod+p exec ~/Others/scripts/displaymenu.sh
-for_window [class="arandr" instance="arandr"] floating enable
-for_window [class="arandr" instance="arandr"] resize set 750px 600px 
 
 # change focus
 bindsym $mod+h focus left

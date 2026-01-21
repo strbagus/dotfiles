@@ -7,10 +7,14 @@ EXTERNAL=$(xrandr | awk '/ connected/ && $1 != "'"$LAPTOP"'" {print $1; exit}')
 
 if [ -z "$EXTERNAL" ]; then
     notify-send "No external monitor detected, using laptop only."
-    xrandr --output "$LAPTOP" --mode "$RESOLUTION" --primary \
-           --output HDMI-1 --off \
-           --output DP-1 --off \
-           --output DP-2 --off
+    OTHER_OUTPUT_ARGS=""
+    ALL_OUTPUTS=$(xrandr --query | grep -E ' (connected|disconnected)' | awk '{print $1}')
+    for out in $ALL_OUTPUTS; do
+        if [ "$out" != "$LAPTOP" ]; then
+            OTHER_OUTPUT_ARGS="$OTHER_OUTPUT_ARGS --output $out --off"
+        fi
+    done
+    xrandr --output "$LAPTOP" --mode "$RESOLUTION" --primary $OTHER_OUTPUT_ARGS
     exit 0
 fi
 

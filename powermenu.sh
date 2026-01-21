@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+WM=$1
+
 
 CHOICE=$(printf "1. Logout\n2. Suspend\n3. Power Off\n4. Reboot\n5. Lockscreen" \
          | rofi -dmenu -p "Power option:" | awk '{print $1}' | tr -d '.')
@@ -7,7 +9,11 @@ CHOICE=$(printf "1. Logout\n2. Suspend\n3. Power Off\n4. Reboot\n5. Lockscreen" 
 
 case "$CHOICE" in
 	1)
-		i3-msg exit
+		if [ "$WM" == "i3wm" ]; then
+			i3-msg exit
+		else
+			swaymsg exit
+		fi
 		;;
 	2)
 		systemctl suspend
@@ -19,9 +25,13 @@ case "$CHOICE" in
 		systemctl reboot
 		;;
 	5)
-		light-locker-command -l
+		if [ "$WM" == "i3wm" ]; then
+			light-locker-command -l
+		else
+			/home/strbagus/Others/scripts/swaylock.sh
+		fi
 		;;
 	*)
-		notify-send "Not a valid option!"
+			notify-send "Not a valid option!"
 		;;
 esac

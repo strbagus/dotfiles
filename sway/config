@@ -47,7 +47,7 @@ bindsym Shift+Print exec bash -c 'region=$(slurp) && sleep 3 && grim -g "$region
 # bindsym Shift+Print exec grim - | swappy -f -
 
 bindsym $mod+Shift+d exec thunar
-bindsym $mod+p exec ~/Others/scripts/displaymenu.sh
+bindsym $mod+p exec ~/Others/scripts/displaymenu.sh sway
 
 # change focus
 bindsym $mod+h focus left
@@ -141,8 +141,8 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
-bindsym $mod+Shift+e exec ~/Others/scripts/powermenu.sh 
-bindsym $mod+Shift+a exec ~/Others/scripts/toggle_xsct.sh
+bindsym $mod+Shift+e exec ~/Others/scripts/powermenu.sh sway
+bindsym $mod+Shift+a exec ~/Others/scripts/toggle_wlsunset.sh
 
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode

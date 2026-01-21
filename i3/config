@@ -178,9 +178,9 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec ~/Others/scripts/powermenu.sh i3wm
 
 
-smart_gaps off
-gaps top 28px
-gaps inner 3px
+smart_gaps on
+# gaps top 28px
+gaps inner 4px
 
 # resize window (you can also use the mouse for that)
 mode "resize" {

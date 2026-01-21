@@ -9,13 +9,14 @@ config.window_padding = {
 	top = 0,
 	bottom = 0,
 }
-config.background = {
+config.window_background_opacity = 0.85
+--[[ config.background = {
 	{
 		source = {
-			File = "/home/strbagus/Pictures/Random/yujin-ive.jpg",
+			File = "~/pic",
 		},
     horizontal_align = "Center",
     hsb = { brightness = 0.1 }
 	}
-}
+} ]]
 return config

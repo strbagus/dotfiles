@@ -59,7 +59,8 @@ exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/mywall2.jpg
 tiling_drag modifier titlebar
 
 # start a terminal
-bindsym $mod+Return exec wezterm
+# bindsym $mod+Return exec wezterm
+bindsym $mod+Return exec alacritty
 
 # kill focused window
 bindsym $mod+q kill

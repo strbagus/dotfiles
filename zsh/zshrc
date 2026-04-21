@@ -28,3 +28,11 @@ source ~/Others/dotfiles/aliases
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+nn() {
+    local NOTES_DIR="$HOME/Documents/Notes"
+    local TIMESTAMP=$(date +"%y%m%d_%H%M")
+    local NAME="${1:-$TIMESTAMP}"
+    local FULL_PATH="$NOTES_DIR/${NAME}.md"
+
+    nvim -c "cd $NOTES_DIR" "$FULL_PATH"
+}

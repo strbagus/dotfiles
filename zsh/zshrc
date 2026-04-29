@@ -27,7 +27,23 @@ source ~/Others/dotfiles/aliases
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 # [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+RPI=""
+NOTES_DIR="$HOME/Documents/Notes"
+notes() {
+    if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
+        plnote
+    else
+        echo "RPi offline, skipping pull..."
+    fi
 
+    nvim ${NOTES_DIR}
+
+    if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
+        psnote
+    else
+        echo "RPi offline, changes saved locally only."
+    fi
+}
 nn() {
     local NOTES_DIR="$HOME/Documents/Notes"
     local TIMESTAMP=$(date +"%y%m%d_%H%M")

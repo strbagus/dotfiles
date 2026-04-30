@@ -3,7 +3,7 @@
 WM="$1"  # i3wm or sway
 
 if [ -z "$WM" ]; then
-    notify-send "Usage: ./displaymenu.sh {i3wm|sway}"
+    notify-send "Display Mode" "Usage: ./displaymenu.sh {expect: i3wm}"
     exit 1
 fi
 
@@ -11,16 +11,17 @@ case "$WM" in
     i3wm|sway)
         ;;
     *)
-        notify-send "Invalid WM: $WM (use i3wm or sway)"
+        notify-send "Display Mode" "Invalid WM: $WM (use i3wm)"
         exit 1
         ;;
 esac
 
 LAPTOP="eDP-1"
-EXTERNAL=$(swaymsg -t get_outputs | jq -r '.[] | select(.name != "'$LAPTOP'") | .name' | head -n 1)
+EXTERNAL=$(xrandr --query | grep " connected" | awk '{print $1}' | grep -v "^$LAPTOP$" | head -n 1)
+DIR="$(dirname "$(readlink -f "$0")")"
 
 if [ -z "$EXTERNAL" ]; then
-    notify-send "No external monitor detected, using laptop only."
+		"$DIR/displaymode-$WM.sh" 1
     exit 0
 fi
 
@@ -30,11 +31,11 @@ CHOICE=$(printf "1. Laptop only\n2. Mirror\n3. Extend (Laptop Left + External Ri
 [ -z "$CHOICE" ] && exit 0
 
 if [ "$CHOICE" -lt 1 ] || [ "$CHOICE" -gt 4 ]; then
-    notify-send "Not a valid option!"
+    notif-send "Not a valid option!"
     exit 0
 fi
 
-notify-send "Mode $CHOICE Selected."
+notify-send "Display Mode" "Mode $CHOICE Selected."
 
-DIR="$(dirname "$(readlink -f "$0")")"
+
 "$DIR/displaymode-$WM.sh" "$CHOICE"

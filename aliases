@@ -1,7 +1,6 @@
 alias pa="php artisan"
 alias pat="php artisan tenants:artisan '$1 --path=database/migrations/tenant --database=tenant'"
 alias phpkey='php -r "echo md5(uniqid()).\"\n\";"'
-alias notes='nvim ~/Documents/Notes'
 alias psnote='rsync -avzP --delete-after ~/Documents/Notes rpi:data'
 alias plnote='rsync -avzP --delete-after rpi:data/Notes ~/Documents/'
 alias snvim="sudo -Es nvim $1"

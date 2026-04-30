@@ -30,20 +30,25 @@ source ~/Others/dotfiles/aliases
 RPI=""
 NOTES_DIR="$HOME/Documents/Notes"
 notes() {
-    if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
-        plnote
-    else
-        echo "RPi offline, skipping pull..."
-    fi
-
+    {
+        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
+            plnote > /dev/null 2>&1 && \
+            notify-send "Notes" "Pull success"
+        else
+            notify-send "Notes" "RPi offline: Local only"
+        fi
+    } &!
     nvim ${NOTES_DIR}
-
-    if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
-        psnote
-    else
-        echo "RPi offline, changes saved locally only."
-    fi
+    {
+        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
+            psnote > /dev/null 2>&1 && \
+            notify-send "Notes" "Push success"
+        else
+            notify-send "Notes" "Offline: Push failed"
+        fi
+    } &!
 }
+
 nn() {
     local NOTES_DIR="$HOME/Documents/Notes"
     local TIMESTAMP=$(date +"%y%m%d_%H%M")

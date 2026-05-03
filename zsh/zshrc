@@ -5,6 +5,8 @@
   # source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 # fi
 
+export EDITOR=vim
+export VISUAL=vim
 export ZSH=$HOME/Others/dotfiles/zsh/oh-my-zsh
 export NVM_DIR=$HOME/.nvm
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
@@ -30,14 +32,14 @@ source ~/Others/dotfiles/aliases
 RPI=""
 NOTES_DIR="$HOME/Documents/Notes"
 notes() {
-    {
-        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
-            plnote > /dev/null 2>&1 && \
-            notify-send "Notes" "Pull success"
-        else
-            notify-send "Notes" "RPi offline: Local only"
-        fi
-    } &!
+#    {
+#        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
+#            plnote > /dev/null 2>&1 && \
+#            notify-send "Notes" "Pull success"
+#        else
+#            notify-send "Notes" "RPi offline: Local only"
+#        fi
+#    } &!
     nvim ${NOTES_DIR}
     {
         if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then

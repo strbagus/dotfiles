@@ -1,0 +1,15 @@
+# Zsh compiled files
+*.zwc
+.zcompdump*
+
+# Auto-installed by plugin manager
+plugins/
+
+# Machine-local overrides
+local.zsh
+
+# Tutorial outline
+TUTORIAL.md
+
+# installed plugins
+./plugins/

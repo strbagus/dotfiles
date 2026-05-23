@@ -1,3 +1,6 @@
+# DON'T READ THIS
+i do not update this readme due to my laziness.
+
 # How to Setup
 - create sysmlink for each configuration into `~/.config`
 - example: `ln -s ~/.dotfiles/nvim ~/.config/nvim`

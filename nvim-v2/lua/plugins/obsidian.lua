@@ -13,6 +13,9 @@ return {
 		},
 		opts = {
 			dir = "~/Documents/Notes/",
+			ui = {
+				enable = false,
+			},
 		},
 		config = function(_, opts)
 			require("obsidian").setup(opts)

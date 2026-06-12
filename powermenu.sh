@@ -32,6 +32,6 @@ case "$CHOICE" in
 		fi
 		;;
 	*)
-			notify-send "Not a valid option!"
+			notify-send "Powermenu" "Not a valid option!"
 		;;
 esac

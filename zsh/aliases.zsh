@@ -50,3 +50,18 @@ alias pvm="source $HOME/venv/bin/activate"
 
 alias :q="exit"
 # alias mcrcon="mcrcon -H xxx.xxx.xxx.xxx -P 25575 -p pass $1"
+
+# sleep
+alias awake="xset s off -dpms && echo 'awake' > /tmp/screen_sleep_state && notify-send 'Screen' 'Caffeine active'" 
+alias asleep="xset s on +dpms && xset s 600 600 && xset dpms 600 600 600 && echo 'standard' > /tmp/screen_sleep_state && notify-send 'Screen' '10m sleep enabled'"
+
+alias top="$HOME/Others/scripts/top.sh"
+
+# docker
+alias dcup="docker compose up -d"
+alias dcdown="docker compose down"
+alias dclogs="docker compose logs -f"
+
+# docker php
+alias dpa="docker compose exec app php artisan $1"
+alias dps="docker compose exec app php spark $1"

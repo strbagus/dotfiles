@@ -24,10 +24,10 @@
 		{
 			"type": "memory"
 		}
-		// {
-		// "type": "disk",
-		// "folders": ["/"],
+		{
+		"type": "disk",
+		"folders": ["/"],
 		// "format": "{used} / {total} ({percent_used}%) - {fs_type}"
-		// }
+		}
 	]
 }

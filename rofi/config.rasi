@@ -1,0 +1,5 @@
+@theme "/usr/share/rofi/themes/Monokai.rasi"
+
+configuration {
+	drun-match-fields: "name,generic,keywords";
+}

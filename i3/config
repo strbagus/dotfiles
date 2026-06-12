@@ -183,6 +183,7 @@ bindsym $mod+Shift+e exec ~/Others/scripts/powermenu.sh i3wm
 
 smart_gaps on
 # gaps top 28px
+gaps inner 0px
 gaps inner 4px
 
 # resize window (you can also use the mouse for that)
@@ -207,6 +208,12 @@ mode "resize" {
         bindsym Escape mode "default"
         bindsym $mod+r mode "default"
 }
+
+# class                 border  backgr. text    indicator child_border
+client.focused          #4c7899 #285577 #ffffff #22424d   #22424d
+client.focused_inactive #333333 #5f676a #ffffff #111111   #111111
+client.unfocused        #333333 #222222 #888888 #111111   #111111
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
 
 bindsym $mod+r mode "resize"
 

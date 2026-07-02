@@ -48,11 +48,11 @@ bindsym XF86MonBrightnessDown exec brightnessctl s 10%-
 bindsym XF86MonBrightnessUp exec brightnessctl s +10%
 
 
-bindsym $mod+Shift+a exec ~/Others/scripts/toggle_xsct.sh
+bindsym $mod+Shift+a exec ~/Others/dotfiles/scripts/toggle_xsct.sh
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-exec_always --no-startup-id feh --bg-fill /usr/share/backgrounds/mywall2.jpg
+exec_always --no-startup-id feh --bg-fill /home/strbagus/Pictures/Wallpaper/corner-leo.png
 
 # move tiling windows via drag & drop by left-clicking into the title bar,
 # or left-clicking anywhere into the window while holding the floating modifier.
@@ -82,7 +82,7 @@ bindsym Shift+Print exec xfce4-screenshooter -f
 exec --no-startup-id xfce4-clipman
 
 bindsym $mod+Shift+d exec thunar
-bindsym $mod+p exec ~/Others/scripts/displaymenu.sh i3wm
+bindsym $mod+p exec ~/Others/dotfiles/scripts/displaymenu.sh i3wm
 
 # change focus
 bindsym $mod+h focus left
@@ -178,7 +178,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec ~/Others/scripts/powermenu.sh i3wm
+bindsym $mod+Shift+e exec ~/Others/dotfiles/scripts/powermenu.sh i3wm
 
 
 smart_gaps on

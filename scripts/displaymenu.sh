@@ -25,12 +25,12 @@ if [ -z "$EXTERNAL" ]; then
     exit 0
 fi
 
-CHOICE=$(printf "1. Laptop only\n2. Mirror\n3. Extend (Laptop Left + External Right)\n4. Extend (Laptop Bottom + External Top)" \
+CHOICE=$(printf "1. Laptop only\n2. Mirror\n3. Extend (Laptop Left + External Right)\n4. Extend (Laptop Bottom + External Top)\n5. External Only" \
     | rofi -dmenu -p "Display Mode:" | awk '{print $1}' | tr -d '.')
 
 [ -z "$CHOICE" ] && exit 0
 
-if [ "$CHOICE" -lt 1 ] || [ "$CHOICE" -gt 4 ]; then
+if [ "$CHOICE" -lt 1 ] || [ "$CHOICE" -gt 5 ]; then
     notif-send "Not a valid option!"
     exit 0
 fi

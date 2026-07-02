@@ -45,6 +45,12 @@ case "$key" in
       --output "$LAPTOP" --mode "$LPRESOLUTION" --primary --pos 0x0 \
       --output "$EXTERNAL" --mode "$RESOLUTION" --above "$LAPTOP"
     ;;
+  5)
+    MODE="Mode 5: External only ($EXTERNAL)"
+    xrandr \
+      --output "$EXTERNAL" --mode "$RESOLUTION" --primary \
+      --output "$LAPTOP" --off
+    ;;
   *)
     echo $MODE
     ;;

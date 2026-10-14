@@ -1,37 +1,59 @@
-# DON'T READ THIS
-i do not update this readme due to my laziness.
+# Dotfiles
 
-# How to Setup
-- create sysmlink for each configuration into `~/.config`
-- example: `ln -s ~/.dotfiles/nvim ~/.config/nvim`
-- for **zsh** `ln -s ~/.dotfiles/zsh/zshrc ~/.zshrc`
-- for **wezterm** `ln -s ~/.dotfiles/wezterm/westerm.lua ~/.wezterm`
+Personal configuration files for ThinkPad X1 Carbon Gen 9 running Debian (X11).
 
-## I3wm
-with polybar
+## Components
 
-## Neovim 
-required version: `0.9^`
+| Component | Tool | Config Path |
+|---|---|---|
+| Window Manager | i3-gaps | `i3/` → `~/.config/i3` |
+| Compositor | picom (GLX + vsync) | `picom/` → `~/.config/picom` |
+| Status Bar | polybar | `polybar/` → `~/.config/polybar` |
+| App Launcher | rofi | `rofi/` → `~/.config/rofi` |
+| Clipboard Manager | greenclip | daemon in i3 (`$mod+c`) |
+| Terminal | alacritty | `alacritty/` → `~/.config/alacritty` |
+| Multiplexer | tmux | `tmux/` → `~/.config/tmux` |
+| Shell | zsh | `zsh/` → `~/.config/zsh` |
+| Editor | Neovim | `nvim-v2/` → `~/.config/nvim` |
+| Notifications | dunst | `dunst/` |
+| System Fetch | fastfetch | `fastfetch/` → `~/.config/fastfetch` |
 
-**Additional Package:**
-- [lazygit](https://github.com/jesseduffield/lazygit) -> git cli ui, integration within Neovim
-- [ripgrep](https://github.com/BurntSushi/ripgrep) -> fuzy finding, integration within Neovim
-- `npm install -g @vue/language-server @vue/typescript-plugin` -> for vue develompent
+## Symlinks Setup
 
-## Tmux
-Step to install [tpm](https://github.com/tmux-plugins/tpm) plugins:
-- `git clone https://github.com/tmux-plugins/tpm /path/to/dotfiles/tmux/plugins/tpm`
-- Open tmux, then press: `prefix + I` for install plugins
+```sh
+dot_dir="$HOME/Others/dotfiles"
 
-# Wezterm
-How to Install [Wezterm](https://wezfurlong.org/wezterm/installation.html)
+mkdir -p ~/.config
 
-## ZSH
-Step to install:
-- make sure **zsh** is installed. `apt install zsh`
-- `cd /path/to/dotfiles/zsh`
-- `sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"`
+ln -sfn "$dot_dir/alacritty"   ~/.config/alacritty
+ln -sfn "$dot_dir/fastfetch"   ~/.config/fastfetch
+ln -sfn "$dot_dir/i3"          ~/.config/i3
+ln -sfn "$dot_dir/nvim-v2"     ~/.config/nvim
+ln -sfn "$dot_dir/picom"       ~/.config/picom
+ln -sfn "$dot_dir/polybar"     ~/.config/polybar
+ln -sfn "$dot_dir/rofi"        ~/.config/rofi
+ln -sfn "$dot_dir/tmux"        ~/.config/tmux
+ln -sfn "$dot_dir/zsh"         ~/.config/zsh
+ln -sfn "$dot_dir/zsh/.zshenv" ~/.zshenv
+```
 
-**Extra:** If **.zshrc** already exists when setup **oh-my-zsh**, it will backup existence **.zshrc** into **.zshrc.preload-something**. In order to use older **.zshrc**:
-- remove new **.zshrc**: `rm .zshrc`
-- rename **.zshrc.preload-something** to **.zshrc**: `mv .zshrc.preload-something .zshrc`
+## Keybindings (i3wm)
+
+- `$mod+Return`: Terminal (`alacritty`)
+- `$mod+d`: App launcher (`rofi -show drun`)
+- `$mod+c`: Clipboard history (`greenclip` via `rofi`)
+- `$mod+q`: Kill focused window
+- `$mod+f`: Toggle fullscreen
+- `$mod+Shift+space`: Toggle floating
+- `$mod+p`: Display menu (`~/Others/dotfiles/scripts/displaymenu.sh i3wm`)
+- `$mod+Shift+e`: Power menu (`~/Others/dotfiles/scripts/powermenu.sh i3wm`)
+- `$mod+Shift+d`: File manager (`thunar`)
+- `$mod+Shift+x`: Lock screen (`light-locker`)
+- `$mod+m`: Toggle notification pause (`dunstctl`)
+- `Print` / `Shift+Print`: Screenshot (`xfce4-screenshooter`)
+
+## Dependencies & Requirements
+
+- `greenclip`: Place static binary in `~/.local/bin/greenclip`.
+- `tpm`: `git clone https://github.com/tmux-plugins/tpm ~/.config/tmux/plugins/tpm`
+- Tools: `alacritty`, `rofi`, `picom`, `polybar`, `dunst`, `feh`, `light-locker`, `pactl`, `brightnessctl`, `lazygit`, `ripgrep`, `eza`, `bat`, `fd`.

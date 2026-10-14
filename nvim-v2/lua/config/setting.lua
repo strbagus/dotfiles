@@ -6,7 +6,7 @@ vim.cmd.colorscheme("habamax")
 vim.opt.number = true -- line number
 vim.opt.relativenumber = true -- relative line numbers
 vim.opt.cursorline = true -- highlight current line
-vim.opt.wrap = false -- do not wrap lines by default
+vim.opt.wrap = true -- do not wrap lines by default
 vim.opt.scrolloff = 10 -- keep 10 lines above/below cursor
 vim.opt.sidescrolloff = 10 -- keep 10 lines to left/right of cursor
 
@@ -83,3 +83,4 @@ vim.opt.wildmode = "longest:full,full" -- complete longest common match, full co
 vim.opt.diffopt:append("linematch:60") -- improve diff display
 vim.opt.redrawtime = 10000 -- increase neovim redraw tolerance
 vim.opt.maxmempattern = 20000 -- increase max memory
+vim.opt.guicursor:append("i:ver100-iCursor")

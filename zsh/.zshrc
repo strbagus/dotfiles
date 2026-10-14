@@ -80,3 +80,19 @@ source "$ZDOTDIR/prompt.zsh"
 source "$ZDOTDIR/function.zsh"
 
 export PATH="/home/strbagus/.local/bin:$PATH"
+export PATH=$PATH:/usr/local/go/bin:/home/strbagus/go/bin
+
+export NVM_DIR="$HOME/.nvm"
+# Define the lazy loader
+lazy_load_nvm() {
+  unset -f nvm node npm npx
+  [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+  [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+}
+# Create placeholder functions for common Node commands
+nvm()  { lazy_load_nvm; nvm "$@"; }
+node() { lazy_load_nvm; node "$@"; }
+npm()  { lazy_load_nvm; npm "$@"; }
+npx()  { lazy_load_nvm; npx "$@"; }
+
+fastfetch

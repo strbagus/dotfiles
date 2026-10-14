@@ -1,19 +1,10 @@
 # Add to local.zsh
-# RPI="server.domain.com"
-# NOTES_DIR="$HOME/path/to/notes"
+RPI="rpi"
+NOTES_DIR="$HOME/Documents/Notes"
 notes() {
-#    {
-#        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
-#            plnote > /dev/null 2>&1 && \
-#            notify-send "Notes" "Pull success"
-#        else
-#            notify-send "Notes" "RPi offline: Local only"
-#        fi
-#    } &!
-    nvim ${NOTES_DIR}
+    nvim "${NOTES_DIR}"
     {
-        if ping -c 1 -W 1 ${RPI} > /dev/null 2>&1; then
-            psnote > /dev/null 2>&1 && \
+        if rsync -az --delete-after -e 'ssh -o ConnectTimeout=3' "${NOTES_DIR}" "${RPI}:data" > /dev/null 2>&1; then
             notify-send "Notes" "Push success"
         else
             notify-send "Notes" "Offline: Push failed"
@@ -28,3 +19,4 @@ nn() {
 
     nvim -c "cd $NOTES_DIR" "$FULL_PATH"
 }
+

@@ -10,7 +10,7 @@ if [ $? != 0 ]; then
   tmux new-session -d -s $SESSION -n "Monitors" "btop"
 
   # 2. Split horizontally. Adjust '-p 40' to change the right pane's width (%)
-  tmux split-window -h -p 40 -t $SESSION "ping google.com"
+  tmux split-window -h -p 25 -t $SESSION "ping 192.168.100.1"
 
   # 3. Target the left pane and split it vertically. 
   # Adjust '-p 50' to change the nvtop pane's height (%)

@@ -212,7 +212,9 @@
 				""
 			]
 		},
-		"on-click": "pavucontrol"
+		"on-click": "/home/strbagus/Others/dotfiles/scripts/audiomenu.sh",
+		"on-click-right": "/home/strbagus/Others/dotfiles/scripts/audiomenu.sh",
+		"on-click-middle": "pavucontrol"
 	},
 	"custom/media": {
 		"format": "{icon} {text}",

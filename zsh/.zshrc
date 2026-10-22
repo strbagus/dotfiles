@@ -27,17 +27,15 @@ eval "$(zoxide init zsh)"
 
 # Completion
 
-# Load completion system
+# Load completion system with cached daily check
 autoload -Uz compinit
-# Only check cache once a day
-# if [ $(find ~/.zcompdump -mtime +1 2>/dev/null) ]; then
-#   compinit
-# else
-#   compinit -C
-# fi
-
-# Initialize completion with cached metadata file
-compinit -d "$XDG_CACHE_HOME/zsh/zcompdump"
+ZCOMPDUMP="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompdump"
+if [[ -n $(find "$ZCOMPDUMP" -mtime +1 2>/dev/null) ]] || [[ ! -f "$ZCOMPDUMP" ]]; then
+  compinit -d "$ZCOMPDUMP"
+  zcompile "$ZCOMPDUMP" 2>/dev/null
+else
+  compinit -C -d "$ZCOMPDUMP"
+fi
 
 # Enable interactive completion menu selection
 zstyle ':completion:*' menu select
@@ -95,4 +93,10 @@ node() { lazy_load_nvm; node "$@"; }
 npm()  { lazy_load_nvm; npm "$@"; }
 npx()  { lazy_load_nvm; npx "$@"; }
 
-fastfetch
+# Fastfetch only on initial login shell (manual alias ff)
+[[ -o login ]] && fastfetch
+
+# bun completions
+[ -s "/home/strbagus/.bun/_bun" ] && source "/home/strbagus/.bun/_bun"
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

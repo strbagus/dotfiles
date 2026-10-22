@@ -35,7 +35,6 @@ alias psnote='rsync -avzP --delete-after ~/Documents/Notes rpi:data'
 alias plnote='rsync -avzP --delete-after rpi:data/Notes ~/Documents/'
 
 # TMUX
-alias tn="tmux new -s $1"
 alias ta="tmux attach"
 alias tkv="tmux kill-server"
 alias tks="tmux kill-session"
@@ -62,11 +61,11 @@ alias top="$HOME/Others/dotfiles/scripts/top.sh"
 alias dcup="docker compose up -d"
 alias dcdown="docker compose down"
 alias dclogs="docker compose logs -f"
-alias dcx="docker compose exec app $1"
-
-# docker php
-alias dpa="docker compose exec app php artisan $1"
-alias dps="docker compose exec app php spark $1"
 
 # check
 alias pg="ping -c10 google.com"
+
+# hardware & system helpers
+alias ff="fastfetch"
+alias tlp-status="cat /sys/class/power_supply/BAT0/charge_control_end_threshold 2>/dev/null || cat /sys/class/power_supply/BAT0/charge_stop_threshold 2>/dev/null"
+alias ee-restart="killall easyeffects 2>/dev/null; easyeffects --gapplication-service &!"

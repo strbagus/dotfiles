@@ -20,3 +20,23 @@ nn() {
     nvim -c "cd $NOTES_DIR" "$FULL_PATH"
 }
 
+
+# TMUX
+tn() {
+    tmux new -s "${1:-main}"
+}
+
+# Docker exec helpers
+dcx() {
+    local svc="${1:-app}"
+    shift 2>/dev/null || true
+    docker compose exec "$svc" "$@"
+}
+
+dpa() {
+    docker compose exec app php artisan "$@"
+}
+
+dps() {
+    docker compose exec app php spark "$@"
+}

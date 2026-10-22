@@ -24,6 +24,7 @@ font pango:UbuntuMono Nerd Font 8
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id picom -b
 exec --no-startup-id dunst
+exec --no-startup-id ~/Others/dotfiles/scripts/i3_urgent_notify.sh
 exec --no-startup-id easyeffects --gapplication-service
 # exec --no-startup-id xsettingsd
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
@@ -66,16 +67,16 @@ bindsym $mod+Return exec alacritty
 bindsym $mod+q kill
 
 bindsym $mod+d exec --no-startup-id rofi -show drun
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-for_window [window_role="pop-up"] floating enable
-for_window [window_role="task_dialog"] floating enable
-for_window [window_type="dialog"] floating enable
+# for_window [window_role="pop-up"] floating enable
+# for_window [window_role="task_dialog"] floating enable
+# for_window [window_type="dialog"] floating enable
 
 default_border pixel 1
 default_floating_border pixel 1
-bindsym Print exec xfce4-screenshooter
-bindsym Shift+Print exec xfce4-screenshooter -f
-exec --no-startup-id greenclip daemon
+bindsym Print exec --no-startup-id flameshot gui
+bindsym Shift+Print exec --no-startup-id flameshot full -p ~/Pictures/Screenshots
+   
+exec --no-startup-id greenclip daemon >/dev/null 2>&1
 bindsym $mod+c exec --no-startup-id rofi -modi "clipboard:greenclip print" -show clipboard -run-command '{cmd}'
 
 bindsym $mod+Shift+d exec thunar
